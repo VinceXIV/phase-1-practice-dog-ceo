@@ -48,15 +48,38 @@ fetch("https://dog.ceo/api/breeds/list/all")
         breedList.append(dogBreed)
     }
 
-    colorDogBreedEntries()
+    hideDogBreedEntries()
 })
 
 
 // Challenge 3
 
+// const dropdownList = document.getElementById('breed-dropdown')
+
+// dropdownList
+// .addEventListener('change', e => {
+//     colorDogBreedEntries();
+// })
+
+
+// Challenge 4
+
+function hideDogBreedEntries(){
+    const selectedLetter = dropdownList.options[dropdownList.selectedIndex].value
+    const dogBreeds = Array.from(document.getElementById('dog-breeds').querySelectorAll('li'))
+
+    for(breed of dogBreeds){
+        if(breed.textContent[0] !== selectedLetter){
+            breed.style.display = 'none'
+        }else{
+            breed.style.display = 'block'
+        }
+    }
+}
+
 const dropdownList = document.getElementById('breed-dropdown')
 
 dropdownList
 .addEventListener('change', e => {
-    colorDogBreedEntries();
+    hideDogBreedEntries();
 })
