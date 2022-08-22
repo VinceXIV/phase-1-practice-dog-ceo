@@ -1,6 +1,8 @@
 console.log('%c HI', 'color: firebrick')
 
 
+// Challenge 1
+
 fetch("https://dog.ceo/api/breeds/image/random/4")
 .then(response => response.json())
 .then(dogs => {
