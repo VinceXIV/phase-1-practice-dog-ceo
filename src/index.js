@@ -52,3 +52,11 @@ fetch("https://dog.ceo/api/breeds/list/all")
 })
 
 
+// Challenge 3
+
+const dropdownList = document.getElementById('breed-dropdown')
+
+dropdownList
+.addEventListener('change', e => {
+    colorDogBreedEntries();
+})
