@@ -19,18 +19,36 @@ fetch("https://dog.ceo/api/breeds/image/random/4")
     })
 })
 
+
+// Challenge 2
+
+function colorDogBreedEntries(){
+    const selectedLetter = dropdownList.options[dropdownList.selectedIndex].value
+    const dogBreeds = Array.from(document.getElementById('dog-breeds').querySelectorAll('li'))
+
+    for(breed of dogBreeds){
+        if(breed.textContent[0] == selectedLetter){
+            breed.style.color = 'red'
+        }else{
+            breed.style.color = 'black'
+        }
+    }
+}
+
 fetch("https://dog.ceo/api/breeds/list/all")
 .then(response => response.json())
 .then(dogBreeds => {
-    dogBreeds = Object.keys(dogBreeds.message);
-    const breedList = document.getElementById('dog-breeds')
+    breeds = Object.keys(dogBreeds.message);
+    let breedList = document.getElementById('dog-breeds')
 
-    for(breedName of dogBreeds){
+    for(breedName of breeds){
         const dogBreed = document.createElement('li')
         dogBreed.textContent = breedName
 
         breedList.append(dogBreed)
     }
+
+    colorDogBreedEntries()
 })
 
 
