@@ -17,3 +17,18 @@ fetch("https://dog.ceo/api/breeds/image/random/4")
     })
 })
 
+fetch("https://dog.ceo/api/breeds/list/all")
+.then(response => response.json())
+.then(dogBreeds => {
+    dogBreeds = Object.keys(dogBreeds.message);
+    const breedList = document.getElementById('dog-breeds')
+
+    for(breedName of dogBreeds){
+        const dogBreed = document.createElement('li')
+        dogBreed.textContent = breedName
+
+        breedList.append(dogBreed)
+    }
+})
+
+
