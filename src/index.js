@@ -8,7 +8,7 @@ fetch("https://dog.ceo/api/breeds/image/random/4")
 .then(dogs => {
     dogs.message.forEach(dog =>{
         const dogImg = document.createElement('img')
-        dogImg.style.height = '30vw'
+        dogImg.style.height = '10vw'
         dogImg.style.margin = '1vw'
 
         dogImg.src = dog;
